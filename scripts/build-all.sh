@@ -67,7 +67,7 @@ cmake --build "$build_root/wirelink" --target wirelink --parallel "$jobs"
     -o "$build_root/generated/erpc" "$repo_root/workloads/erpc/task.erpc"
 for source in "$build_root"/generated/erpc/*.cpp; do
     object="$build_root/generated/erpc/objects/$(basename "${source%.cpp}").o"
-    "${CXX:-c++}" -std=c++11 -O2 \
+    "${CXX:-c++}" -std=c++11 -O2 -DNDEBUG \
         -I"$build_root/generated/erpc" \
         -I"$repo_root/third_party/erpc/erpc_c/config" \
         -I"$repo_root/third_party/erpc/erpc_c/infra" \
