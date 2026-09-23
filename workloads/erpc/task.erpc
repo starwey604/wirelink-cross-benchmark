@@ -1,0 +1,25 @@
+program wirelink_cross_benchmark;
+
+struct SetpointRequest {
+    uint32 request_id
+    uint32 channel
+    uint32 value
+}
+
+struct SetpointResponse {
+    uint32 request_id
+    uint32 status
+    uint32 applied_value
+}
+
+struct Sample {
+    uint32 sequence
+    uint32 sample_tick
+    uint32 value
+    uint32 flags
+}
+
+interface TaskService {
+    setpoint(SetpointRequest input) -> SetpointResponse
+    oneway publish_sample(Sample sample)
+}

@@ -1,0 +1,22 @@
+namespace WirelinkBench;
+
+table SetpointRequest {
+  request_id:uint;
+  channel:uint;
+  value:uint;
+}
+
+table SetpointResponse {
+  request_id:uint;
+  status:uint;
+  applied_value:uint;
+}
+
+table Sample {
+  sequence:uint;
+  sample_tick:uint;
+  value:uint;
+  flags:uint;
+}
+
+root_type SetpointRequest;
